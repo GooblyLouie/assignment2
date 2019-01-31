@@ -1,0 +1,37 @@
+<Page class="page"
+    navigatingTo="onNavigatingTo"  
+    xmlns="http://schemas.nativescript.org/tns.xsd"
+    xmlns:nsDrawer="nativescript-ui-sidedrawer">
+
+    <ActionBar class="action-bar">
+        <Label class="action-bar-title" text="Your Encouragement"></Label>
+    </ActionBar>
+
+    <nsDrawer:RadSideDrawer id="sideDrawer">
+        <nsDrawer:RadSideDrawer.drawerContent>
+            <StackLayout backgroundColor="gray">
+            <StackLayout height="56" style="text-align: center; vertical-align: center;">
+                <Label text="Navigation Menu"/>
+            </StackLayout>
+            <ScrollView>
+                <StackLayout>
+                    <Button text="Home" padding="10" backgroundColor="lightgray" tap="onHomeTap"/>
+                    <Button text="Encouragement" padding="10" tap="onEncourageTap"/>
+                    <Button text="Options" padding="10" tap="onOptionsTap"/>
+                    <Button text="About" padding="10" tap="onAboutTap"/>
+                    <Button text="Close Drawer" color="lightgray" padding="10" style="horizontal-align: center" tap="{{ onCloseDrawerTap }}"/>
+                </StackLayout>
+            </ScrollView>
+            </StackLayout>
+        </nsDrawer:RadSideDrawer.drawerContent>
+
+        <nsDrawer:RadSideDrawer.mainContent>
+                <p id="greeting" onload = "setGreeting"></p>
+                <p id="encouragement" onload = "onEncourageTap" textWrap="true"></p>
+
+                <GridLayout rows="auto,*" columns="auto,*">
+                    <Button text="Get new encouragement" tap="onEncourageTap" class="btn btn-primary btn-active"/>
+                </GridLayout> 
+        </nsDrawer:RadSideDrawer.mainContent>
+    </nsDrawer:RadSideDrawer>
+</Page>
